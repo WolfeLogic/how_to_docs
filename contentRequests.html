@@ -61,8 +61,7 @@
                             <section id="theCalls" class="doc-section">
                                 <h2 class="section-title">The Calls</h2>
                                 <div class="section-block">
-                                    <h3 class="question"><i class="fa fa-question-circle"></i> Can I viverra sit amet quam eget lacinia?</h3>
-                                    <div class="answer">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere.</div>
+                                    <p>This minute showing of requests is but the tip of the iceberg, however it does encompass the majority of the straight-up content requests. Keep in mind the table includes both requests to Wikipedia's RESTful API as well as it's legacy API.</p>
                                 </div><!--//section-block-->
                                 <div class="table-responsive">
                                         <table class="table">
@@ -118,7 +117,36 @@
                             <section id="requestCode" class="doc-section">
                                 <h2 class="section-title">What They Look Like</h2>
                                 <div class="section-block">
-                                    <h3 class="question"><i class="fa fa-question-circle"></i> Why am I getting congue condimentum turpis?</h3>
+                                    <p>It's obviously worth taking a look at Wikipedia's official (auto-generated) documentation, but there are three sections in particular that are worth your while regarding content requests</p>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>What</th>
+                                                    <th>Where</th>
+                                                    <th>Why</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><code>action=query</code></td>
+                                                    <td><a href="https://www.mediawiki.org/wiki/API:Query">API:Query</a></td>
+                                                    <td>The <code>action=query</code> module is a fairly robust service (considering) with a reasonably indepth doc page.</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><code>action=parse</code></td>
+                                                    <td><a href="https://www.mediawiki.org/wiki/API:Parsing_wikitext">API:Parsing</a></td>
+                                                    <td>The <code>action=parse</code> service apparently overlaps with another service or two, but is generally aligned with the content request objective and has significant (if not opaque) documentation.</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Wikimedia REST API</td>
+                                                    <td><a href="https://en.wikipedia.org/api/rest_v1/">RESTBase</a></td>
+                                                    <td>RESTBase storage backends expose a RESTful storage API, similar to Amazon DynamoDB and Google DataStore, requesting content transformations from backend services when needed, handling high-volume static end points where most requests will be satisfied directly from storage.</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div><!--//table-responsive-->
                                 </div><!--//section-block-->
                             </section><!--//doc-section-->
                         </div><!--//content-inner-->
