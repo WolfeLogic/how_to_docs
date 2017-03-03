@@ -67,7 +67,6 @@
                                         <table class="table">
                                             <thead>
                                                 <tr>
-                                                    <th>#</th>
                                                     <th>Request</th>
                                                     <th>Format</th>
                                                     <th>Description</th>
@@ -76,35 +75,30 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <th scope="row">1</th>
                                                     <td>GET</td>
                                                     <td>/page/summary/{title}</td>
                                                     <td>Get a text extract & thumb summary of a page</td>
                                                     <td>https://en.wikipedia.org/api/rest_v1/page/summary/Koala</td>
                                                 </tr>
                                                 <tr>
-                                                    <th scope="row">2</th>
                                                     <td>GET</td>
                                                     <td>/page/related/{title}</td>
                                                     <td>Get pages related to the given title</td>
                                                     <td>https://en.wikipedia.org/api/rest_v1/page/related/Koala</td>
                                                 </tr>
                                                 <tr>
-                                                    <th scope="row">3</th>
                                                     <td>GET</td>
                                                     <td>/page/graph/png/{title}/{revision}/{graph_id}</td>
                                                     <td>Get PNG graph images referenced in page revisions</td>
                                                     <td><a href="https://en.wikipedia.org/api/rest_v1/#!/Page_content/get_page_graph_png_title_revision_graph_id">Requires graph ID</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <th scope="row">4</th>
                                                     <td>GET</td>
                                                     <td>action=query&titles={title}&prop=revisions&rvprop=content&format=json</td>
                                                     <td>Allows you to get information about a wiki and the data stored in it, such as the wikitext of a particular page</td>
                                                     <td>https://en.wikipedia.org/w/api.php?action=query&titles=Sloth&prop=revisions&rvprop=content&format=json&callback=functionJSON</td>
                                                 </tr>
                                                 <tr>
-                                                    <th scope="row">5</th>
                                                     <td>GET</td>
                                                     <td>action=parse&format=json&prop=text&section=0&page={title}&callback=functionJSON</td>
                                                     <td>Parses content and returns parser output.</td>
