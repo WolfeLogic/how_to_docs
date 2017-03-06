@@ -147,6 +147,9 @@
         <br>
         <br>
         <p>Viewing these two examples via a nice JSON formatter like <a href="https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=en">JSONView</a> goes a long way to illustrate my point, but the long and short of it is, you can't traverse a stable, predictable JSON object like a multidimensional array in one example (because if you're here, you probably get how that works), but then when you come to a generally unpredictable JSON response and use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys"><code>Oject.keys(obj)</code></a> without being told what it does or how it works... Well that's kinda what we're there for, and it kinda renders a lot of what you're trying to convey moot (sorry, not sorry).</p>
+        <br>
+        <p>So here's the breakdown on non-trivial <i>magic</i>...</p>
+        <br>
         <h3> Accessing Known Properties Within a Dynamic JSON Object </h3>
         <p>Wikipedia's API, as I've mentioned, doesn't follow hard and fast conventions in the building of its pages, and so, when you request something, you can't bet on the responses to include for that which you are looking. More over, responses involve keys that you can't possibly know prior to reciept of the response, and hence, cannot define a specific route/path to a desired property within said object without a little help.</p>
         <br>
