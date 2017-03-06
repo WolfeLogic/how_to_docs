@@ -69,7 +69,6 @@
                                     <p>Let's build this query <code>https://en.wikipedia.org/w/api.php?action=query&titles=Sloth&prop=images&format=json</code> via a GET request (because we're not changing anything, just requesting something) using an ajax request</p>
                                     <script async src="//jsfiddle.net/WolfeLogic/5k2o9v7w/1/embed/js,html,result/dark/?bodyColor=000000"></script>
                                     <p>That's good and fine, but it doesn't actually provide the image URLs (womp womp)&#x1F61E;. You have to make an additional request that looks something like this: <code>https://en.wikipedia.org/w/api.php?action=query&titles=File:Bradypus.jpg&prop=imageinfo&iiprop=url&format=json</code></p>
-
                                     <h3>Callback</h3>
                                     <p>JSONP responses are passed as an argument to a callback function. So you end up having to alter/append the target URL/GET request with <code>&callback={functionName}</code> or simply <code>&callback=?</code>. If you're using a POST request, jQuery subs in the <code>success</code> function for the <code>?</code>. To clarify, the purpose is to make a request to a site/service on a different server than that of the request-origin (which to be clear, is precisely what CORS is supposed to be preventing, so that "P" should be a "D" for "duplicitous"). Honestly though, I'm not sure why this is "okay", but it is definitely what is currently being done.</p>
                                     <h3>Callback Example with Return as Function Argument to <code>functionJSON</code></h3>
@@ -80,8 +79,53 @@
                             <section id="parsing" class="doc-section">
                                 <h2 class="section-title">Parsing With JS... Ha!</h2>
                                 <div class="section-block">
-                                    <h3> JSON.parse() & JSON.stringify() </h3>
-                                    <p>Parse and Stringify Examples To Come</p>
+                                    <h3> JSON Object Notation </h3>
+                                    <p>There's another "guide" out there that, for whatever reason, uses super clean examples of perfect JSON responses (that in no way pertain to Wikipedia responses) to explain how to parse and access Wikipedia's responses, and then magically comes up with <code>var images = data.query.pages[Object.keys(data.query.pages)[0]].images;</code> to parse the response from a request like this:<code>https://en.wikipedia.org/w/api.php?action=query&prop=images&titles=Sloth&format=json</code>. I'm not going to use the term "criminal", but you can't compare beautiful:</p>
+                                    <br>
+                                    <code>var friends = {
+    "ashley": {
+    "name": "Ashley",
+    "current location": "Hong Kong"
+  },
+  "kammy": {
+    "name": "Kammy",
+    "age": 26,
+    "current location": "San Francisco",
+    "hobbies": ["cooking", "travelling", "reading"]
+  }
+}</code> <p> with something like this</p>
+<code>{
+continue: {
+imcontinue: "5168174|Thalassocnus.jpg",
+continue: "||"
+},
+query: {
+pages: {
+5168174: {
+pageid: 5168174,
+ns: 0,
+title: "Sloth",
+images: [
+{
+ns: 6,
+title: "File:Bradypus.jpg"
+},
+{
+ns: 6,
+title: "File:Commons-logo.svg"
+},
+{
+ns: 6,
+title: "File:Lock-green.svg"
+},
+{
+ns: 6,
+title: "File:MC Drei-Finger-Faultier.jpg"
+},
+{
+ns: 6,
+title: "File:Megatherium americanum Skeleton NHM.JPG"
+},</code>
                                 </div><!--//section-block-->
                             </section><!--//doc-section-->
                             <section id="jquery" class="doc-section">
