@@ -103,9 +103,9 @@
                                 <h2 class="section-title">Parsing With JS... Ha!</h2>
                                 <div class="section-block">
                                     <h3> Maybe Actually Tell Me Something I Can Use... </h3>
-                                    <p>There's another "guide" out there that, for whatever reason, uses super clean examples of perfect JSON responses (that in no way pertain to Wikipedia responses) to explain how to parse and access Wikipedia's responses, and then magically comes up with <code>var images = data.query.pages[Object.keys(data.query.pages)[0]].images;</code> to parse the response from a request like this:<code>https://en.wikipedia.org/w/api.php?action=query&prop=images&titles=Sloth&format=json</code>.</p> 
+                                    <p>Take a look at these two examples in your browser:</p> 
                                     <br>
-                                    <p>You simply can't compare beautiful, well-form JSON respons like this:</p>
+                                    <p>Here you'll find a well-formed JSON object response:</p>
                                     <br>
                                     <code>var friends = {
                                         "ashley": {
@@ -120,7 +120,7 @@
                                 }
                             }</code> 
                             <br>
-                            <p> With garbage like this:</p>
+                            <p> And here's some generally unpredictable garbage:</p>
                             <br>
                             <code>{
                                 continue: {
@@ -156,7 +156,7 @@
         },</code>
         <br>
         <br>
-        <p>Viewing these two examples via a nice JSON formatter like <a href="https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=en">JSONView</a> goes a long way to illustrate my point, but the long and short of it is, you can't traverse a stable, predictable JSON object like a multidimensional array in one example (because if you're here, you probably get how that works), but then when you come to a generally unpredictable JSON response and use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys"><code>Oject.keys(obj)</code></a> without being told what it does or how it works... Well that's kinda what we're there for, and it kinda renders a lot of what you're trying to convey moot (sorry, not sorry).</p>
+        <p>Viewing these two examples via a nice JSON formatter like <a href="https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=en">JSONView</a> goes a long way to illustrate my point, and "garbage" is probably a little rough, but the long and short of it is, you can't traverse an unstable, unpredictable JSON response like a multidimensional array (i.e. <code>data[3][i]</code> or the element in the fourth object with an index of 'i'). When you have a magician's hat and you're not sure whether you're getting a rabbit or a garbled JSON response, you're going to want to use something like <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys"><code>Oject.keys(obj)</code></a> and a reasonable amount of validation to ensure you've actually captured what you're looking for.</p>
         <br>
         <p>So here's the breakdown on non-trivial <i>magic</i>...</p>
         <br>
