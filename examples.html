@@ -73,12 +73,12 @@
                                 <div class="section-block">
 
                                     <p>Cross-origin resource sharing or "Shoot Me In The Foot CORS", as it is commonly known, is not specific to using the Wikipedia API, and actually is the recommended standard for a reason. It turns out CORS is for our <del>insanity</del> safety. In brief, the standard allows generally benign assets like fonts, images, videos, etc. to load from outside the origin of request (or cross-origin) (so we don't have to host our own YouTube or supply fonts), but what it doesn't allow is wonderful, powerful, potentially ruthless AJAX requests to eviscerate our local and network systems through maliciously implanted software. It's what we call a "win->lose" situation (but not quite "zero sum game")</p>
-                                    <p>Kidding aside, while many API's set their <code>access-control-origin</code> to <code>*</code>, Wikipedia has not and thus CORS affects how we must structure our requests as well as how we test them. We're going to tackle CORS with JSONP (the "P" is for "padding"!) and callbacks.</p>
+                                    <p>Kidding aside, while many API's set their <code class="language-markup">access-control-origin</code> to <code class="language-markup">*</code>, Wikipedia has not and thus CORS affects how we must structure our requests as well as how we test them. We're going to tackle CORS with JSONP (the "P" is for "padding"!) and callbacks.</p>
                                     <h3>JSON vs. JSONP</h3>
-                                    <p>I just want to be very clear on this, I'm like 200hrs into this whole 10k hr thing... I know virtually nothing about this. So disclaimers aside, this is how I'm told it works: When you make a JSONP request from your JavaScript file or nested within a <code>script</code> tag, the JSONP surreptitiously injects your DOM (typically in the <code>head</code>) with a <code>script</code> tag with the target URL. What it very specifically does NOT do is utilize the <code>XMLHTTPRequest()</code> method.</p>
+                                    <p>I just want to be very clear on this, I'm like 200hrs into this whole 10k hr thing... I know virtually nothing about this. So disclaimers aside, this is how I'm told it works: When you make a JSONP request from your JavaScript file or nested within a <code class="language-markup">script</code> tag, the JSONP surreptitiously injects your DOM (typically in the <code class="language-markup">head</code>) with a <code class="language-markup">script</code> tag with the target URL. What it very specifically does NOT do is utilize the <code class="language-markup">XMLHTTPRequest()</code> method.</p>
                                     <p>Let's build this query:</p> 
                                     <p><pre><a href="https://en.wikipedia.org/w/api.php?action=query&titles=Sloth&prop=images&format=json" target="_blank"><code class="language-markup">https://en.wikipedia.org/w/api.php?action=query&titles=Sloth&prop=images&format=json</code></a></pre></p>  
-                                    <p>via a GET request (because we're not changing anything, just requesting something) using an ajax request, using "JSONP" as the requested <code>dataType</code> (I will cover the <code>Objects.keys()</code> method below).</p>
+                                    <p>via a GET request (because we're not changing anything, just requesting something) using an ajax request, using "JSONP" as the requested <code class="language-markup">dataType</code> (I will cover the <code class="language-markup">Objects.keys()</code> method below).</p>
                                     <script async src="//jsfiddle.net/WolfeLogic/5k2o9v7w/1/embed/js,html,result/dark/?bodyColor=000000"></script>
                                     <p>That's good and fine, but it doesn't actually provide the image URLs (womp womp)&#x1F61E;. You have to make an additional request that looks something like this:</p>
                                     <br>
@@ -86,16 +86,16 @@
                                     <br>
                                     <p>The next level is nesting/chaining the calls, but be sure to look into the <i>best practice</i> as it seems to be a somewhat contentious subject. Also, something something <a href="https://api.jquery.com/category/deferred-object/" target="_blank"><i>deferred objects</i></a>.</p>
                                     <h3>Callbacks</h3>
-                                    <p>JSONP responses are passed as an argument to a callback function. So you end up having to alter/append the target URL/GET request with <code>&callback={functionName}</code> or simply <code>&callback=?</code>. It may have been coincidental, but I found that I had to place the callback function parameter within the GET URL at the very end for Wikipedia to regularly accept it</p>
+                                    <p>JSONP responses are passed as an argument to a callback function. So you end up having to alter/append the target URL/GET request with <code class="language-markup">&callback={functionName}</code> or simply <code class="language-markup">&callback=?</code>. It may have been coincidental, but I found that I had to place the callback function parameter within the GET URL at the very end for Wikipedia to regularly accept it</p>
                                     <br>
                                     <p><b>The Callback Function = <i>processJSON</i></b></p>
                                     <p><pre><a href="https://en.wikipedia.org/w/api.php?action=parse&format=json&prop=text&section=0&page=Sloth&callback=processJSON" target="_blank"><code class="language-markup">https://en.wikipedia.org/w/api.php?action=parse&format=json&prop=text&section=0&page=Sloth&callback=processJSON</code></a></pre></p>
                                     <br>
                                     <br>
-                                    <p>If you're using a POST request (though you probably shouldn't be if you're just making a request for data... Serioulsy), jQuery subs in the <code>success</code> function for the <code>?</code>.</p>
+                                    <p>If you're using a POST request (though you probably shouldn't be if you're just making a request for data... Serioulsy), jQuery subs in the <code class="language-markup">success</code> function for the <code class="language-markup">?</code>.</p>
                                     <br>
                                     <p>To clarify, the purpose of all of this is to make a request to a site/service on a different server than that of the request-origin (<em>which to be clear, is precisely what CORS is supposed to be preventing</em>, so that "P" should be a "D" for "duplicitous"). Honestly though, I'm not sure why this is "okay", but it is definitely what is currently being done.</p>
-                                    <h3>Callback Example with Return as Function Argument to <code>functionJSON</code></h3>
+                                    <h3>Callback Example with Return as Function Argument to <code class="language-markup">functionJSON</code></h3>
                                     <script async src="//jsfiddle.net/WolfeLogic/uk53q0se/1/embed/html,result/dark/?bodyColor=000000"></script>
                                     <p>Finally, I strongly suggest Jason Schock's <a href="http://schock.net/articles/2013/02/05/how-jsonp-really-works-examples/" target="_blank"><i>So how does JSONP really work?</i></a> for a deeper dive.</p>
 
@@ -109,7 +109,7 @@
                                     <br>
                                     <p>Here you'll find a well-formed JSON object response:</p>
                                     <br>
-                                    <code>var friends = {
+                                    <code class="language-markup">var friends = {
                                         "ashley": {
                                         "name": "Ashley",
                                         "current location": "Hong Kong"
@@ -124,7 +124,7 @@
                             <br>
                             <p> And here's some generally unpredictable garbage:</p>
                             <br>
-                            <code>{
+                            <code class="language-markup">{
                                 continue: {
                                 imcontinue: "5168174|Thalassocnus.jpg",
                                 continue: "||"
@@ -158,7 +158,7 @@
         },</code>
         <br>
         <br>
-        <p>Viewing these two examples via a nice JSON formatter like <a href="https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=en" target="_blank">JSONView</a> goes a long way to illustrate my point, and "garbage" is probably a little rough (dynamic keys are actually quite prevalent in API responses, and while sometimes unavoidable, they're not deliberate, "developer-first" designs), but the long and short of it is, you can't traverse an unstable, unpredictable JSON response like a multidimensional array (i.e. <code>data[3][i]</code> or the element in the fourth object with an index of 'i'). When you have a magician's hat and you're not sure whether you're getting a rabbit or a garbled JSON response, you're going to want to use something like <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys" target="_blank"><code>Oject.keys(obj)</code></a> and a reasonable amount of validation to ensure you've actually captured what you're looking for.</p>
+        <p>Viewing these two examples via a nice JSON formatter like <a href="https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=en" target="_blank">JSONView</a> goes a long way to illustrate my point, and "garbage" is probably a little rough (dynamic keys are actually quite prevalent in API responses, and while sometimes unavoidable, they're not deliberate, "developer-first" designs), but the long and short of it is, you can't traverse an unstable, unpredictable JSON response like a multidimensional array (i.e. <code class="language-markup">data[3][i]</code> or the element in the fourth object with an index of 'i'). When you have a magician's hat and you're not sure whether you're getting a rabbit or a garbled JSON response, you're going to want to use something like <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys" target="_blank"><code class="language-markup">Oject.keys(obj)</code></a> and a reasonable amount of validation to ensure you've actually captured what you're looking for.</p>
         <br>
         <p>So here's the breakdown on non-trivial <i>magic</i>...</p>
         <br>
