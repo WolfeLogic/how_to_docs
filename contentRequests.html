@@ -88,31 +88,31 @@
                                                 <td>GET</td>
                                                 <td>/page/summary/{title}</td>
                                                 <td>Get a text extract & thumb summary of a page</td>
-                                                <td><a href="https://en.wikipedia.org/api/rest_v1/page/summary/Koala">https://en.wikipedia.org/api/rest_v1/page/summary/Koala</a></td>
+                                                <td><a href="https://en.wikipedia.org/api/rest_v1/page/summary/Koala" target="_blank">https://en.wikipedia.org/api/rest_v1/page/summary/Koala</a></td>
                                             </tr>
                                             <tr>
                                                 <td>GET</td>
                                                 <td>/page/related/{title}</td>
                                                 <td>Get pages related to the given title</td>
-                                                <td><a href="https://en.wikipedia.org/api/rest_v1/page/related/Koala">https://en.wikipedia.org/api/rest_v1/page/related/Koala</a></td>
+                                                <td><a href="https://en.wikipedia.org/api/rest_v1/page/related/Koala" target="_blank">https://en.wikipedia.org/api/rest_v1/page/related/Koala</a></td>
                                             </tr>
                                             <tr>
                                                 <td>GET</td>
                                                 <td>/page/graph/png/{title}/{revision}/{graph_id}</td>
                                                 <td>Get PNG graph images referenced in page revisions</td>
-                                                <td><a href="https://en.wikipedia.org/api/rest_v1/#!/Page_content/get_page_graph_png_title_revision_graph_id">Requires graph ID</a></td>
+                                                <td><a href="https://en.wikipedia.org/api/rest_v1/#!/Page_content/get_page_graph_png_title_revision_graph_id" target="_blank">Requires graph ID</a></td>
                                             </tr>
                                             <tr>
                                                 <td>GET</td>
                                                 <td>action=query&titles={title}&prop=revisions&rvprop=content&format=json</td>
                                                 <td>Allows you to get information about a wiki and the data stored in it, such as the wikitext of a particular page</td>
-                                                <td><a href="https://en.wikipedia.org/w/api.php?action=query&titles=Sloth&prop=revisions&rvprop=content&format=json&callback=functionJSON">https://en.wikipedia.org/w/api.php?action=query&titles=Sloth&prop=revisions&rvprop=content&format=json&callback=functionJSON</a></td>
+                                                <td><a href="https://en.wikipedia.org/w/api.php?action=query&titles=Sloth&prop=revisions&rvprop=content&format=json" target="_blank">https://en.wikipedia.org/w/api.php?action=query&titles=Sloth&prop=revisions&rvprop=content&format=json</a></td>
                                             </tr>
                                             <tr>
                                                 <td>GET</td>
                                                 <td>action=parse&format=json&prop=text&section=0&page={title}&callback=functionJSON</td>
                                                 <td>Parses content and returns parser output.</td>
-                                                <td><a href="https://en.wikipedia.org/w/api.php?action=parse&format=json&prop=text&section=0&page=Koala">https://en.wikipedia.org/w/api.php?action=parse&format=json&prop=text&section=0&page=Koala</a></td>
+                                                <td><a href="https://en.wikipedia.org/w/api.php?action=parse&format=json&prop=text&section=0&page=Koala" target="_blank">https://en.wikipedia.org/w/api.php?action=parse&format=json&prop=text&section=0&page=Koala</a></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -134,17 +134,17 @@
                                             <tbody>
                                                 <tr>
                                                     <td><code>action=query</code></td>
-                                                    <td><a href="https://www.mediawiki.org/wiki/API:Query">API:Query</a></td>
+                                                    <td><a href="https://www.mediawiki.org/wiki/API:Query" target="_blank">API:Query</a></td>
                                                     <td>The <code>action=query</code> module is a fairly robust service (considering) with a reasonably indepth doc page. You'll probably end up using this service the most.</td>
                                                 </tr>
                                                 <tr>
                                                     <td><code>action=parse</code></td>
-                                                    <td><a href="https://www.mediawiki.org/wiki/API:Parsing_wikitext">API:Parsing</a></td>
+                                                    <td><a href="https://www.mediawiki.org/wiki/API:Parsing_wikitext" target="_blank">API:Parsing</a></td>
                                                     <td>The <code>action=parse</code> service apparently overlaps with another service or two, but is generally aligned with the content request objective and has significant (if not opaque) documentation.</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Wikimedia REST API</td>
-                                                    <td><a href="https://en.wikipedia.org/api/rest_v1/">RESTBase</a></td>
+                                                    <td><a href="https://en.wikipedia.org/api/rest_v1/" target="_blank">RESTBase</a></td>
                                                     <td>RESTBase storage backends expose a RESTful storage API, similar to Amazon DynamoDB&#xAE; and Google DataStore&#xAE;, requesting content transformations from backend services when needed, handling high-volume static end points where most requests will be satisfied directly from storage... So what I'm gathering is it's a utility that regurgitates existing services... But like really fast.</td>
                                                 </tr>
                                             </tbody>
